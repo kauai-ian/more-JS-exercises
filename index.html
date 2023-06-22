@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Loops: Tasks</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <h1>Challenge 1 from MDN docs</h1>
+    <section class="preview"></section>
+
+    <script>
+      const myArray = [
+        "tomatoes",
+        "chick peas",
+        "onions",
+        "rice",
+        "black beans"
+      ];
+      const list = document.createElement("ul");
+
+      for (i = 0; i < myArray.length; i++) {
+        const item = document.createElement("li"); //had to create the <li> inside the loop first in order for it to go inside a list.
+        item.textContent = myArray[i]; //taking the variable "item" and running it in the post text to the page function in JS. Setting it equal to array * i.
+        list.appendChild(item); // calls the list to add the children to it (children are the <li> items).
+      }
+
+      const section = document.querySelector("section");
+      section.appendChild(list);
+    </script>
+    <div></div>
+    <h1>Challenge 2 from MDN docs</h1>
+    <p>
+      In this next task, we want you to write a simple program that, given a
+      name, searches an array of objects containing names and phone numbers
+      (phonebook) and, if it finds the name, outputs the name and phone number
+      into the paragraph (para) and then exits the loop before it has run its
+      course.
+    </p>
+    <script>
+            const name = "Mustafa";
+            const para = document.createElement("p");
+
+            const phonebook = [
+              { name: "Chris", number: "1549" },
+              { name: "Li Kang", number: "9634" },
+              { name: "Anne", number: "9065" },
+              { name: "Francesca", number: "3001" },
+              { name: "Mustafa", number: "6888" },
+              { name: "Tina", number: "4312" },
+              { name: "Bert", number: "7780" },
+              { name: "Jada", number: "2282" }
+            ];
+
+      // Add your code here
+            for (i = 0, i < phonebook.length, i++) {
+              if(phonebook[i].name === name) {
+                para.textContent = `${phonebook[i].name}'s number is ${phonebook[i].number}.`;
+                break;
+              }
+              if(i === phonebook.length - 1) {
+                para.textContent = "Name and number not found."
+              }
+            }
+
+            // Don't edit the code below here!
+            const section = document.querySelector("section");
+            section.appendChild(para);
+    </script>
+    <h1>Challenge 3 from MDN docs</h1>
+    <p>
+      You need to use a loop to go through the numbers 2 to 500 backwards (1 is
+      not counted as a prime number), and run the provided isPrime() function on
+      them. For each number that isn't a prime number, continue on to the next
+      loop iteration. For each one that is a prime number, add it to the
+      paragraph's textContent along with some kind of separator.
+    </p>
+    <script>
+      let i = 500;
+      const para = document.createElement("p");
+
+      function isPrime(num) {
+        for (let i = 2; i < num; i++) {
+          if (num % i === 0) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+
+      // Add your code here
+
+      // Don't edit the code below here!
+      const section = document.querySelector("section");
+      section.appendChild(para);
+    </script>
+  </body>
+</html>
